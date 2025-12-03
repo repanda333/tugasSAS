@@ -1,0 +1,559 @@
+/* --- 1. SETUP VARIABEL WARNA (High Contrast Blue & Green) --- */
+:root {
+    /* PRIMARY COLORS */
+    --mutu-blue: #003366;       /* Biru Muhammadiyah Pekat */
+    --mutu-blue-hover: #004c99; /* Biru lebih terang untuk hover */
+    
+    --mutu-green: #00a651;      /* Hijau Muhammadiyah Murni (Lebih Tajam) */
+    --mutu-lime: #8CC63F;       /* Hijau Stabilo untuk Aksen/Badge */
+    
+    /* NEUTRALS (NO GRAY) */
+    --white: #ffffff;
+    --off-white: #f0f8ff;       /* AliceBlue (Pengganti abu-abu untuk background) */
+    
+    /* TEXT COLORS (NO GRAY) */
+    --text-main: #002244;       /* Biru Sangat Gelap (Pengganti Hitam/Abu Tua) */
+    --text-sub: #004488;        /* Biru Sedang (Pengganti Abu Muda) */
+    
+    /* SHADOWS (Blue Tinted) */
+    --shadow-blue: 0 4px 20px rgba(0, 51, 102, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+    background-color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 2. HEADER AREA --- */
+.main-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: var(--white);
+    box-shadow: var(--shadow-blue);
+}
+
+/* TOP BAR (Full Biru) */
+.top-bar {
+    background-color: var(--mutu-blue);
+    color: var(--white);
+    font-size: 0.85rem;
+    padding: 12px 0;
+    font-weight: 500;
+    border-bottom: 1px solid var(--mutu-lime); /* Aksen garis hijau tipis */
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info .info-item {
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.contact-info .info-item i {
+    color: var(--mutu-lime); /* Ikon Hijau Menyala */
+    margin-right: 8px;
+}
+
+.label-time {
+    background-color: var(--mutu-green);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* NAVBAR */
+.navbar {
+    padding: 15px 0;
+    background-color: var(--white);
+    border-bottom: 4px solid var(--mutu-green); /* Garis bawah tebal Hijau */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Styling */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    font-size: 2.8rem;
+    color: var(--mutu-blue);
+    filter: drop-shadow(2px 2px 0px var(--mutu-lime)); /* Efek tumpuk hijau */
+}
+
+.logo-text {
+    font-weight: 800;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.text-blue { 
+    color: var(--mutu-blue); 
+    font-size: 1.8rem;
+    margin-right: 5px;
+    letter-spacing: -1px;
+}
+
+.text-green-bg { 
+    background-color: var(--mutu-green);
+    color: var(--white);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 1.8rem;
+    margin-right: 5px;
+    transform: skew(-10deg); /* Miring sedikit biar sporty */
+    display: inline-block;
+}
+
+.text-sub { 
+    font-size: 1rem; 
+    color: var(--mutu-blue); 
+    font-weight: 700; 
+    margin-left: 8px;
+    border-left: 3px solid var(--mutu-lime);
+    padding-left: 10px;
+    display: block;
+}
+
+/* Nav Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--mutu-blue); /* Teks menu Biru, bukan hitam/abu */
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background-color: var(--off-white);
+    color: var(--mutu-green);
+}
+
+.btn-search {
+    background-color: var(--mutu-blue);
+    color: white;
+    border: 2px solid var(--mutu-blue);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-search:hover { 
+    background-color: var(--white);
+    color: var(--mutu-blue);
+}
+
+/* --- 3. HERO SECTION --- */
+.hero {
+    /* Ganti URL ini dengan lokasi foto gedung sekolahmu yang asli */
+    /* Contoh: url('../images/foto-sekolah.jpg'); */
+    background-image: url('../images/gambar.jpg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Penting agar overlay tidak bocor keluar */
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    margin-top: 0; /* Reset margin jika navbar sudah fixed overlay */
+}
+
+/* INI BAGIAN YANG MEMBERIKAN EFEK BIRU TRANSPARAN */
+.overlay {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    
+    /* Warna Dasar Biru Muhammadiyah (#003366) dengan Transparansi 0.85 (85%) */
+    background: rgba(0, 51, 102, 0.85);
+    
+    /* OPSI: Kalau mau efek gradasi biru transparan (lebih modern), pakai baris di bawah ini: */
+    /* background: linear-gradient(135deg, rgba(0, 51, 102, 0.9) 0%, rgba(0, 76, 153, 0.8) 100%); */
+    
+    z-index: 1; /* Posisi di atas gambar background */
+}
+
+/* Memastikan Teks & Tombol muncul DI ATAS overlay biru */
+.hero-content {
+    position: relative;
+    z-index: 2; 
+    color: var(--white);
+    max-width: 900px;
+    text-align: center;
+    margin: auto;
+}
+
+.badge {
+    background: var(--mutu-green);
+    color: var(--white);
+    padding: 8px 25px;
+    font-size: 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: inline-block;
+    box-shadow: 0 0 15px rgba(0, 166, 81, 0.6); /* Glow hijau */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px var(--mutu-blue);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 1;
+    color: #e6f2ff; /* Putih kebiruan */
+    font-weight: 400;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: var(--mutu-green);
+    color: var(--white);
+    border: 2px solid var(--mutu-green);
+}
+.btn-primary:hover { 
+    background: var(--white); 
+    color: var(--mutu-green); 
+    box-shadow: 0 0 20px rgba(255,255,255,0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+.btn-outline:hover { 
+    background: var(--mutu-blue); 
+    color: var(--white); 
+    border-color: var(--mutu-blue);
+}
+
+/* --- 4. FEATURES SECTION (Background Putih Bersih) --- */
+.features { 
+    padding: 80px 0; 
+    background: var(--white); /* Putih murni */
+}
+
+.section-title { text-align: center; margin-bottom: 40px; }
+.section-title h2 { 
+    color: var(--mutu-blue); 
+    font-size: 2.2rem; 
+    margin-bottom: 15px; 
+    font-weight: 900;
+    letter-spacing: -0.5px;
+}
+.line { 
+    width: 100px; 
+    height: 6px; 
+    background: var(--mutu-green); 
+    margin: 0 auto; 
+    border-radius: 10px;
+}
+
+/* Social Bar */
+.social-bar { text-align: center; margin-bottom: 60px; }
+.soc-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    margin: 0 8px;
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.soc-icon:hover { transform: translateY(-5px) scale(1.1); }
+/* Warna tetap */
+.fb { background: #3b5998; }
+.tw { background: #55acee; }
+.yt { background: #cd201f; }
+.ig { background: #e4405f; }
+.rss { background: #f26522; }
+
+/* Grid Cards */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 35px;
+}
+
+.card {
+    background: var(--white);
+    padding: 40px 25px;
+    border-radius: 15px;
+    /* Bayangan Biru Lembut, Bukan Abu */
+    box-shadow: var(--shadow-blue); 
+    text-align: center;
+    border: 1px solid #e6f2ff; /* Border biru sangat tipis */
+    border-bottom: 5px solid var(--mutu-blue);
+    transition: 0.3s;
+}
+
+.card:hover { 
+    transform: translateY(-10px); 
+    border-bottom-color: var(--mutu-green);
+    background: var(--off-white); /* Background berubah jadi biru sangat muda */
+}
+
+.card .icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--mutu-green);
+    /* Drop shadow pada ikon */
+    filter: drop-shadow(0 5px 5px rgba(0, 166, 81, 0.2)); 
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--mutu-blue);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.card p {
+    color: var(--text-sub); /* Teks biru sedang, bukan abu */
+    font-size: 0.95rem;
+}
+
+/* --- 5. FOOTER --- */
+footer {
+    background: var(--mutu-blue);
+    color: var(--white);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 1rem;
+    border-top: 6px solid var(--mutu-green);
+}
+
+/* --- 6. RESPONSIVE --- */
+.hamburger { display: none; cursor: pointer; }
+.hamburger span {
+    display: block; width: 30px; height: 4px; 
+    margin: 6px; background: var(--mutu-blue);
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .top-bar { display: none; }
+    
+    .hamburger { display: block; }
+    
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 80px; 
+        flex-direction: column;
+        background: var(--white);
+        width: 80%;
+        height: 100vh;
+        padding-top: 40px;
+        box-shadow: -10px 0 20px rgba(0, 51, 102, 0.1); /* Bayangan biru */
+        transition: 0.3s;
+        border-left: 5px solid var(--mutu-green);
+    }
+    .nav-links.active { right: 0; }
+    .search-item { display: none; }
+
+    .hero { margin-top: 70px; height: auto; padding: 100px 0; }
+    .hero h1 { font-size: 2.2rem; }
+    
+    .features-grid { grid-template-columns: 1fr; }
+}
+
+/* --- TEAM SECTION (KELOMPOK) --- */
+.team {
+    padding: 80px 0;
+    background: var(--off-white); /* Background Biru Sangat Muda (AliceBlue) */
+    position: relative;
+}
+
+/* Grid Layout */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* Card Style */
+.team-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-blue);
+    border: 1px solid #e6f2ff;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+/* Garis warna di atas card */
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 6px;
+    background: linear-gradient(to right, var(--mutu-blue), var(--mutu-green));
+    transition: 0.4s;
+}
+
+.team-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0, 51, 102, 0.2);
+}
+
+/* Foto Anggota */
+.team-img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    padding: 5px;
+    border: 2px dashed var(--mutu-green); /* Garis putus-putus hijau */
+    position: relative;
+    transition: 0.4s;
+}
+
+.team-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--off-white);
+}
+
+.team-card:hover .team-img {
+    transform: scale(1.1) rotate(5deg);
+    border-color: var(--mutu-blue);
+    border-style: solid;
+}
+
+/* Info Text */
+.team-info h3 {
+    color: var(--mutu-blue);
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.team-info .role {
+    display: inline-block;
+    background: #e6f9ed; /* Hijau sangat muda */
+    color: var(--mutu-green);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.team-info .desc {
+    color: var(--text-sub); /* Biru Teks */
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Social Media Icons */
+.team-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.team-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--mutu-blue);
+    border: 2px solid var(--mutu-blue);
+    transition: 0.3s;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.team-social a:hover {
+    background: var(--mutu-green);
+    border-color: var(--mutu-green);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* Responsive untuk HP */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* 1 kolom di HP */
+        padding: 0 20px;
+    }
+}
